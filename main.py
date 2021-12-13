@@ -6,8 +6,8 @@ sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
         scope="playlist-modify-private",
         redirect_uri="http://example.com",
-        client_id="",
-        client_secret="",
+        client_id="a5bfac740a424406bc4e29abe95f0274",
+        client_secret="23ade15d2bcb4b58ab1fe403be325b81",
         show_dialog=True,
         cache_path="token.txt"
     )
@@ -25,11 +25,11 @@ songs_uri_list = []
 try:
     uri = result["tracks"]["items"][0]["uri"]
     songs_uri_list.append(uri)
-    # print(songs_uri_list)
-    # playlist_name = "All Time Favs"
-    # Create a playlist
-    # playlist = sp.user_playlist_create(user_id, name=playlist_name, public=False)
-    # id = playlist["id"]
+    print(songs_uri_list)
+    playlist_name = "All Time Favs"
+    # # Create a playlist
+    playlist = sp.user_playlist_create(user_id, name=playlist_name, public=False)
+    id = playlist["id"]
     # Add items to the playlist
     sp.playlist_add_items(playlist_id="168R1BGIOhJq043l6E6PN7", items=songs_uri_list)
 
