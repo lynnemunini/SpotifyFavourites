@@ -1,13 +1,13 @@
 import spotipy
 import pprint
 from spotipy.oauth2 import SpotifyOAuth
-
+import os
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
         scope="playlist-modify-private",
         redirect_uri="http://example.com",
-        client_id="a5bfac740a424406bc4e29abe95f0274",
-        client_secret="23ade15d2bcb4b58ab1fe403be325b81",
+        client_id=os.environ.get("CLIENT_ID"),
+        client_secret=os.environ.get("CLIENT_SECRET"),
         show_dialog=True,
         cache_path="token.txt"
     )
